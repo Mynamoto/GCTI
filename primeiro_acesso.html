@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Primeiro Acesso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GCTI</h1>
+            <p>Gerenciamento de chamados de TI</p>
+            <h2>Primeiro Acesso</h2>
+        </div>
+        <div class="content">
+            <p>Se este é o seu primeiro acesso, clique abaixo para cadastrar um novo usuário.</p>
+            <a href="/cadastro_usuario" class="button">Cadastrar Novo Usuário</a>
+        </div>
+        <div class="links">
+            <a href="/login">Voltar ao Login</a>
+        </div>
+    </div>
+</body>
+</html>

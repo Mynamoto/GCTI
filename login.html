@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="centered-container">
+    <div class="container">
+        <div class="header">
+            <h1>GCTI</h1>
+            <p>Gerenciamento de chamados de TI</p>
+            <h2>Login</h2>
+        </div>
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Usuário" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Senha" required>
+                <small>Deve ter ao menos 4 caracteres</small>
+            </div>
+            <div class="links">
+                <a href="/primeiro_acesso">1º acesso</a>
+                <a href="#">Esqueci minha senha</a>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

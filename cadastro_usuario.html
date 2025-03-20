@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body class="centered-container">
+    <div class="container">
+        <div class="header">
+            <h1>GCTI</h1>
+            <p>Gerenciamento de chamados de TI</p>
+            <h2>Cadastro de Usuário</h2>
+        </div>
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <input type="text" name="nome_completo" placeholder="Nome Completo" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Nome de Usuário" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Senha" required>
+                <small>Deve ter ao menos 4 caracteres</small>
+            </div>
+            <div class="form-group">
+                <input type="text" name="telefone_contato" placeholder="Telefone para Contato" required>
+            </div>
+            <div class="form-group dropdown-container">
+                <input type="text" name="setor" placeholder="Setor" readonly required>
+                <div class="dropdown-content" id="setor-dropdown">
+                    <div>Lógistica</div>
+                    <div>RH</div>
+                    <div>Controle de Frotas</div>
+                    <div>Compras</div>
+                    <div>Contabilidade</div>
+                    <div>Gerencia médica</div>
+                    <div>Gerencia de Enfermagem</div>
+                    <div>NEP</div>
+                    <div>Segurança do trabalho</div>
+                </div>
+            </div>
+            <div class="form-group dropdown-container">
+                <input type="text" name="regiao" placeholder="Região" readonly required>
+                <div class="dropdown-content" id="regiao-dropdown">
+                    <div>VLD</div>
+                    <div>Caratinga</div>
+                    <div>Santada do paraíso</div>
+                    <div>Belo Oriente</div>
+                    <div>Tarumirim</div>
+                    <div>Peçanha</div>
+                    <div>Mantena</div>
+                    <div>Antônio Dias</div>
+                    <div>Galileia</div>
+                    <div>Santa Maria</div>
+                    <div>Timóteo</div>
+                    <div>São João Evangelista</div>
+                    <div>Resplendor</div>
+                    <div>Coronel Fabriciano</div>
+                    <div>Vermelho novo</div>
+                    <div>Dionísio</div>
+                    <div>Inhapim</div>
+                    <div>Itanhomi</div>
+                    <div>Mendes Pimentel</div>
+                    <div>Sardoá</div>
+                    <div>Aimorés</div>
+                    <div>Virgolândia</div>
+                    <div>Frei Inocêncio</div>
+                    <div>Conselheiro Pena</div>
+                </div>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div class="links">
+            <a href="/login">Voltar ao Login</a>
+        </div>
+    </div>
+</body>
+</html>

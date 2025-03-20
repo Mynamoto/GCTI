@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Conta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body class="centered-container">
+    <div class="container">
+        <div class="header">
+            <h1>GCTI</h1>
+            <p>Gerenciamento de chamados de TI</p>
+            <h2>Editar Conta</h2>
+        </div>
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <input type="text" name="nome_completo" value="{{ user[0] }}" placeholder="Nome Completo" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="telefone_contato" value="{{ user[1] }}" placeholder="Telefone para Contato" required>
+            </div>
+            <div class="form-group dropdown-container">
+                <input type="text" name="setor" value="{{ user[2] }}" placeholder="Setor" required>
+                <div class="dropdown-content" id="setor-dropdown">
+                    <option>Lógistica</option>
+                    <option>RH</option>
+                    <option>Controle de Frotas</option>
+                    <option>Compras</option>
+                    <option>Contabilidade</option>
+                    <option>Gerencia médica</option>
+                    <option>Gerencia de Enfermagem</option>
+                    <option>NEP</option>
+                    <option>Segurança do trabalho</option>
+                </div>
+            </div>
+            <div class="form-group dropdown-container">
+                <input type="text" name="regiao" value="{{ user[3] }}" placeholder="Região" required>
+                <div class="dropdown-content" id="regiao-dropdown">
+                    <option>VLD</option>
+                    <option>Caratinga</option>
+                    <option>Santada do paraíso</option>
+                    <option>Belo Oriente</option>
+                    <option>Tarumirim</option>
+                    <option>Peçanha</option>
+                    <option>Mantena</option>
+                    <option>Antônio Dias</option>
+                    <option>Galileia</option>
+                    <option>Santa Maria</option>
+                    <option>Timóteo</option>
+                    <option>São João Evangelista</option>
+                    <option>Resplendor</option>
+                    <option>Coronel Fabriciano</option>
+                    <option>Vermelho novo</option>
+                    <option>Dionísio</option>
+                    <option>Inhapim</option>
+                    <option>Itanhomi</option>
+                    <option>Mendes Pimentel</option>
+                    <option>Sardoá</option>
+                    <option>Aimorés</option>
+                    <option>Virgolândia</option>
+                    <option>Frei Inocêncio</option>
+                    <option>Conselheiro Pena</option>
+                </div>
+            </div>
+            <button type="submit">Salvar</button>
+        </form>
+        <div class="links">
+            <a href="/minha_conta">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

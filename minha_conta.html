@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="centered-container">
+    <div class="container">
+        <div class="header">
+            <h1>GCTI</h1>
+            <p>Gerenciamento de chamados de TI</p>
+            <h2>Minha Conta</h2>
+        </div>
+        <div class="content">
+            <p><strong>Usuário:</strong> {{ user[0] }}</p>
+            <p><strong>Nome Completo:</strong> {{ user[1] }}</p>
+            <p><strong>Telefone:</strong> {{ user[2] }}</p>
+            <p><strong>Setor:</strong> {{ user[3] }}</p>
+            <p><strong>Região:</strong> {{ user[4] }}</p>
+            <p><strong>Perfil:</strong> {{ user[5] }}</p>
+        </div>
+        <div class="links">
+            <a href="/dashboard">Voltar ao Dashboard</a>
+            <a href="/editar_conta">Editar Conta</a>
+        </div>
+    </div>
+</body>
+</html>

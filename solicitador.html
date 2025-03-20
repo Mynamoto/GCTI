@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Solicitador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="hamburger-container">
+            <button class="hamburger" onclick="toggleSidebar()">☰</button>
+            <div id="menu" class="menu">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="/dashboard"><i>📋</i> Chamados</a></li>
+                    <li><a href="/relatorios"><i>📊</i> Relatórios</a></li>
+                    <li><a href="#" onclick="openTab('abertos')"><i>📂</i> Chamados Abertos</a></li>
+                    <li><a href="#" onclick="openTab('fechados')"><i>✅</i> Chamados Fechados</a></li>
+                    <li><a href="/bi"><i>📈</i> BI</a></li>
+                    <li><a href="/abrir_chamado"><i>➕</i> Abrir Chamado</a></li>
+                    <li><a href="/logout"><i>🚪</i> Logoff</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tabs">
+            <button class="tab-button small active" onclick="openTab('abertos')">Chamados Abertos</button>
+            <button class="tab-button small" onclick="openTab('fechados')">Chamados Fechados</button>
+        </div>
+        <div class="user-menu">
+            <span class="welcome">Bem-vindo, {{ username }}</span>
+            <span class="username" onclick="toggleUserMenu()">{{ username }} ▼</span>
+            <div id="user-dropdown" class="user-dropdown">
+                <a href="/minha_conta">Minha conta</a>
+                <a href="/editar_conta">Editar minha conta</a>
+                <a href="/logout">Logoff</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div id="abertos" class="tab-content active">
+            <h2>Chamados Abertos</h2>
+            {% if chamados_abertos %}
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Tipo de Chamado</th>
+                    <th>Descrição</th>
+                    <th>Setor</th>
+                    <th>Região</th>
+                    <th>Data Abertura</th>
+                    <th>Prazo</th>
+                    <th>Status</th>
+                    <th>SLA</th>
+                    <th>Ações</th>
+                </tr>
+                {% for chamado in chamados_abertos %}
+                <tr>
+                    <td>{{ chamado[0] }}</td>
+                    <td>{{ chamado[1] }}</td>
+                    <td>{{ chamado[2] }}</td>
+                    <td>{{ chamado[3] }}</td>
+                    <td>{{ chamado[4] }}</td>
+                    <td>{{ chamado[5] }}</td>
+                    <td>{{ chamado[6] }}</td>
+                    <td>{{ chamado[7] }}</td>
+                    <td>{{ chamado[8] }}</td>
+                    <td><span class="sla-bubble {{ chamado[10] }}"></span> {{ chamado[9] }} dias</td>
+                    <td><button class="close-btn" onclick="showClosePopup({{ chamado[0] }})">✖</button></td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>Não há chamados abertos no momento.</p>
+            {% endif %}
+        </div>
+        <div id="fechados" class="tab-content">
+            <h2>Chamados Fechados</h2>
+            {% if chamados_fechados %}
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Tipo de Chamado</th>
+                    <th>Descrição</th>
+                    <th>Setor</th>
+                    <th>Região</th>
+                    <th>Data Abertura</th>
+                    <th>Data Fechamento</th>
+                    <th>Status</th>
+                    <th>SLA</th>
+                </tr>
+                {% for chamado in chamados_fechados %}
+                <tr>
+                    <td>{{ chamado[0] }}</td>
+                    <td>{{ chamado[1] }}</td>
+                    <td>{{ chamado[2] }}</td>
+                    <td>{{ chamado[3] }}</td>
+                    <td>{{ chamado[4] }}</td>
+                    <td>{{ chamado[5] }}</td>
+                    <td>{{ chamado[6] }}</td>
+                    <td>{{ chamado[7] }}</td>
+                    <td>{{ chamado[8] }}</td>
+                    <td><span class="sla-bubble {{ chamado[10] }}"></span></td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>Não há chamados fechados no momento.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div id="close-popup" class="popup">
+        <div class="popup-content">
+            <h3>Fechar Chamado</h3>
+            <form id="solucao-form" method="POST" action="">
+                <textarea name="solucao" placeholder="Descreva a solução" required></textarea>
+                <button type="submit">Fechar</button>
+                <button type="button" onclick="hideClosePopup()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

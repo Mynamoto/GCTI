@@ -1,0 +1,386 @@
+/* Estilos gerais */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #FFFFFF; /* Fundo branco */
+    font-family: Arial, sans-serif;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #D32F2F; /* Vermelho do SAMU */
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.hamburger-container {
+    position: relative;
+}
+
+.hamburger {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #FFFFFF; /* Texto branco */
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #FFFFFF; /* Fundo branco */
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 200px;
+}
+
+.menu.show {
+    display: block;
+}
+
+.menu h3 {
+    margin: 0 0 10px 0;
+    color: #1976D2; /* Azul do SAMU */
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    padding: 5px 0;
+}
+
+.menu ul li a {
+    color: #1976D2; /* Azul do SAMU */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu ul li a:hover {
+    background: #e0e0e0;
+}
+
+.menu ul li a i {
+    margin-right: 10px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF; /* Texto branco */
+}
+
+.welcome {
+    margin-right: 10px;
+}
+
+.username {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.username:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    background: #FFFFFF; /* Fundo branco */
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.user-dropdown a {
+    display: block;
+    color: #1976D2; /* Azul do SAMU */
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.user-dropdown a:hover {
+    background: #e0e0e0;
+}
+
+.content {
+    margin-top: 60px;
+    padding: 20px;
+    color: #000000; /* Texto preto */
+}
+
+.tabs {
+    position: absolute;
+    top: 10px;
+    left: 60px;
+}
+
+.tab-button {
+    padding: 5px 10px;
+    background: #1976D2; /* Azul do SAMU */
+    border: none;
+    color: #FFFFFF; /* Texto branco */
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.tab-button.active {
+    background: #F57C00; /* Laranja para botão ativo */
+    opacity: 1;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #1976D2; /* Azul do SAMU */
+    color: #FFFFFF; /* Texto branco */
+    font-weight: bold;
+}
+
+td {
+    color: #000000; /* Texto preto */
+}
+
+.sla-bubble {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.sla-bubble.green {
+    background-color: #28a745;
+}
+
+.sla-bubble.yellow {
+    background-color: #ffc107;
+}
+
+.sla-bubble.red {
+    background-color: #dc3545;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #FF0000; /* Vermelho para o "X" */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #FFFFFF; /* Fundo branco */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid #1976D2; /* Borda azul */
+}
+
+.popup-content label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #000000; /* Texto preto */
+}
+
+.popup-content textarea, .popup-content select, .popup-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #1976D2; /* Borda azul */
+    border-radius: 3px;
+}
+
+#pecas-detalhes {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #1976D2; /* Borda azul */
+}
+
+.header {
+    color: #D32F2F; /* Vermelho do SAMU */
+    text-align: left;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header p {
+    margin: 5px 0 20px 0;
+    font-size: 14px;
+}
+
+.header h2 {
+    margin: 20px 0 0 0;
+    font-size: 24px;
+}
+
+.login-form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #1976D2; /* Borda azul */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.dropdown-container {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-content div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-content div:hover {
+    background-color: #e0e0e0;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.form-group small {
+    color: #000000; /* Texto preto */
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.links a {
+    color: #1976D2; /* Azul do SAMU */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #F57C00; /* Laranja para botões de ação */
+    color: #FFFFFF; /* Texto branco */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #E64A19; /* Laranja mais escuro no hover */
+}
+
+button[type="button"] {
+    background-color: #B0BEC5; /* Cinza claro para botões secundários */
+    color: #000000; /* Texto preto */
+}
+
+button[type="button"]:hover {
+    background-color: #90A4AE; /* Cinza mais escuro no hover */
+}
